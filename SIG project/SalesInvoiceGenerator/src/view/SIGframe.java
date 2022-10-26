@@ -56,6 +56,7 @@ public class SIGframe extends javax.swing.JFrame {
         saveMenuItem = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("mainFrame");
         setName("jframe"); // NOI18N
 
         headerTable.setModel(new javax.swing.table.DefaultTableModel(
@@ -211,21 +212,22 @@ public class SIGframe extends javax.swing.JFrame {
 
     private void loadMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loadMenuItemActionPerformed
         // TODO add your handling code here:
-        JFileChooser fileChooser = new JFileChooser();
-        Component frame = null;
-            int option = fileChooser.showOpenDialog(frame);
-            if(option == JFileChooser.APPROVE_OPTION){
-               File file = fileChooser.getSelectedFile();
-               label.setText("File Selected: " + file.getName());
-            }else{
-               label.setText("Open command canceled");
-            }
+        controller.InvoiceHeaderController.loadFile(label, loadMenuItem, headerTable);
+//        JFileChooser fileChooser = new JFileChooser();
+//        Component frame = null;
+//            int option = fileChooser.showOpenDialog(frame);
+//            if(option == JFileChooser.APPROVE_OPTION){
+//               File file = fileChooser.getSelectedFile();
+//               label.setText("File Selected: " + file.getName());
+//            }else{
+//               label.setText("Open command canceled");
+//            }
     }//GEN-LAST:event_loadMenuItemActionPerformed
 
     private void saveMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveMenuItemActionPerformed
         // TODO add your handling code here:
-        JFrame parentFrame = new JFrame();
- 
+     JFrame parentFrame = new JFrame();
+
 JFileChooser fileChooser = new JFileChooser();
 fileChooser.setDialogTitle("Specify a file to save");   
  
