@@ -22,7 +22,7 @@ import org.apache.commons.csv.CSVRecord;
  */
 public class InvoiceHeaderController {
     
-    public static void loadFile(Object label, JMenuItem loadMenuItem, JTable headerTable) {
+    public static void loadFile(JMenuItem loadMenuItem, JTable headerTable) {
         JFileChooser fileChooser = new JFileChooser();
         JLabel selected_file = new JLabel();
         selected_file.setBounds(0, 5, 100, 200);
@@ -78,6 +78,10 @@ public class InvoiceHeaderController {
             }
         });
 
+    }
+
+    public static void saveFile(JMenuItem saveMenuItem, JTable headerTable) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
 }

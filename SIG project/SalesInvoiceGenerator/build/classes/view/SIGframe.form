@@ -288,6 +288,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Creat Invoice"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="creatInvBtnActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="deleteInvBtn">
       <Properties>

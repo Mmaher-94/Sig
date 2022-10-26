@@ -104,6 +104,11 @@ public class SIGframe extends javax.swing.JFrame {
         jScrollPane2.setViewportView(lineTable);
 
         creatInvBtn.setText("Creat Invoice");
+        creatInvBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                creatInvBtnActionPerformed(evt);
+            }
+        });
 
         deleteInvBtn.setText("Delete Invoice");
 
@@ -212,32 +217,16 @@ public class SIGframe extends javax.swing.JFrame {
 
     private void loadMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loadMenuItemActionPerformed
         // TODO add your handling code here:
-        controller.InvoiceHeaderController.loadFile(label, loadMenuItem, headerTable);
-//        JFileChooser fileChooser = new JFileChooser();
-//        Component frame = null;
-//            int option = fileChooser.showOpenDialog(frame);
-//            if(option == JFileChooser.APPROVE_OPTION){
-//               File file = fileChooser.getSelectedFile();
-//               label.setText("File Selected: " + file.getName());
-//            }else{
-//               label.setText("Open command canceled");
-//            }
+        controller.InvoiceHeaderController.loadFile(loadMenuItem, headerTable);
     }//GEN-LAST:event_loadMenuItemActionPerformed
 
     private void saveMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveMenuItemActionPerformed
-        // TODO add your handling code here:
-     JFrame parentFrame = new JFrame();
-
-JFileChooser fileChooser = new JFileChooser();
-fileChooser.setDialogTitle("Specify a file to save");   
- 
-int userSelection = fileChooser.showSaveDialog(parentFrame);
- 
-if (userSelection == JFileChooser.APPROVE_OPTION) {
-    File fileToSave = fileChooser.getSelectedFile();
-    System.out.println("Save as file: " + fileToSave.getAbsolutePath());
-}
+            controller.InvoiceHeaderController.saveFile(saveMenuItem, headerTable);
     }//GEN-LAST:event_saveMenuItemActionPerformed
+
+    private void creatInvBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_creatInvBtnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_creatInvBtnActionPerformed
 
     /**
      * @param args the command line arguments
