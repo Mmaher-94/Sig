@@ -6,9 +6,13 @@
 package view;
 
 import java.awt.Component;
+import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -70,6 +74,11 @@ public class SIGframe extends javax.swing.JFrame {
                 "Num", "Customer", "Date", "Total"
             }
         ));
+        headerTable.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                headerTableKeyPressed(evt);
+            }
+        });
         jScrollPane1.setViewportView(headerTable);
 
         jLabel1.setText("Invoice Num");
@@ -221,12 +230,42 @@ public class SIGframe extends javax.swing.JFrame {
     }//GEN-LAST:event_loadMenuItemActionPerformed
 
     private void saveMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveMenuItemActionPerformed
-            controller.InvoiceHeaderController.saveFile(saveMenuItem, headerTable);
+            JFileChooser fileChooser = new JFileChooser();
+        fileChooser.setDialogTitle("Specify a file save");
+        int  userSelection;
+        userSelection = fileChooser.showSaveDialog(this);
+        if(userSelection == JFileChooser.APPROVE_OPTION){
+            File fileToSave = fileChooser.getSelectedFile();
+            //lets write to file
+          
+            try {
+                  FileWriter fw = new FileWriter(fileToSave);
+                BufferedWriter bw = new BufferedWriter(fw);
+                for (int i = 0; i< headerTable.getRowCount(); i++) {
+                    for (int j = 0 ; j < headerTable.getColumnCount(); j++) {
+                        //write
+                        bw.write(headerTable.getValueAt(i, j).toString()+",");
+                    }
+                    bw.newLine();//record per line 
+                }
+                JOptionPane.showMessageDialog(this, "SUCCESSFULLY LOADED","INFORMATION",JOptionPane.INFORMATION_MESSAGE);
+                bw.close();
+                fw.close();
+            } catch (IOException ex) {
+               JOptionPane.showMessageDialog(this, "ERROR","ERROR MESSAGE",JOptionPane.ERROR_MESSAGE);
+            }
+            
+            
+        }
     }//GEN-LAST:event_saveMenuItemActionPerformed
 
     private void creatInvBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_creatInvBtnActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_creatInvBtnActionPerformed
+
+    private void headerTableKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_headerTableKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_headerTableKeyPressed
 
     /**
      * @param args the command line arguments

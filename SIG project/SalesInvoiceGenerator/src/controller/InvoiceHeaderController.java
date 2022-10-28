@@ -9,8 +9,11 @@ import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Vector;
 import org.apache.commons.csv.CSVFormat;
@@ -80,9 +83,7 @@ public class InvoiceHeaderController {
 
     }
 
-    public static void saveFile(JMenuItem saveMenuItem, JTable headerTable) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+   
 
 }
 
